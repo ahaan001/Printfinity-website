@@ -8,7 +8,7 @@ const steps = [
     number: "01",
     icon: Send,
     title: "Submit Your Request",
-    description: "Fill out our quick form with your project details — model, material, size, and deadline.",
+    description: "Fill out our quick form with your project details: model, material, size, and deadline.",
   },
   {
     number: "02",

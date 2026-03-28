@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Box, ExternalLink } from "lucide-react";
+import Image from "next/image";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import models from "@/data/models.json";
@@ -87,11 +88,22 @@ export default function GalleryPage() {
                   <Card hoverable className="overflow-hidden group cursor-pointer">
                     {/* Thumbnail */}
                     <div className={`aspect-square bg-gradient-to-br ${getCategoryGradient(model.category)} flex items-center justify-center relative overflow-hidden`}>
-                      <Box size={64} className="text-white/10" />
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
+                      {model.thumbnail ? (
+                        <Image
+                          src={model.thumbnail}
+                          alt={model.name}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <>
+                          <Box size={64} className="text-white/10" />
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
+                        </>
+                      )}
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <span className="text-white text-sm font-medium bg-[#3B82F6]/80 px-3 py-1.5 rounded-full backdrop-blur-sm">
-                          View in 3D
+                          {model.file ? "View in 3D" : "Order Now"}
                         </span>
                       </div>
                     </div>

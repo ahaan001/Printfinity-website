@@ -1,16 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Camera, ExternalLink, Play } from "lucide-react";
+import { ExternalLink, Play } from "lucide-react";
+import Image from "next/image";
 import { SITE_CONFIG } from "@/lib/constants";
 
-const placeholderColors = [
-  "from-[#1a2a4a] to-[#2A4A7F]",
-  "from-[#111D35] to-[#1a3060]",
-  "from-[#0d1f3c] to-[#2A4A7F]",
-  "from-[#1a2a4a] to-[#111D35]",
-  "from-[#0A1628] to-[#2A4A7F]",
-  "from-[#111D35] to-[#0A1628]",
+const PHOTOS = [
+  { src: "/images/printed-dragon.jpg", alt: "Articulated dragon print" },
+  { src: "/images/printed-keychain.jpg", alt: "Custom keychains" },
+  { src: "/images/printed-knight.jpg", alt: "Knight figurine print" },
+  { src: "/images/printed-cartoons.jpg", alt: "Cartoon figurines" },
+  { src: "/images/printed-f1logo.jpg", alt: "F1 logo print" },
+  { src: "/images/printed-cat.jpg", alt: "Cat figurine print" },
 ];
 
 export default function InstagramFeed() {
@@ -45,20 +46,23 @@ export default function InstagramFeed() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {placeholderColors.map((gradient, i) => (
+            {PHOTOS.map((photo, i) => (
               <motion.div
                 key={i}
-                className={`aspect-square rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center border border-white/5 overflow-hidden group cursor-pointer`}
+                className="aspect-square rounded-2xl bg-[#111D35] border border-white/5 overflow-hidden group cursor-pointer relative"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.07 }}
                 whileHover={{ scale: 1.03, borderColor: "rgba(59,130,246,0.4)" }}
               >
-                <div className="flex flex-col items-center gap-2 text-[#C0C8D8]/40 group-hover:text-[#C0C8D8]/70 transition-colors duration-300">
-                  <Camera size={28} />
-                  <span className="text-xs">Coming Soon</span>
-                </div>
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
             ))}
           </div>
@@ -71,7 +75,7 @@ export default function InstagramFeed() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          Real posts coming soon — follow us on Instagram!
+          See more of our work on Instagram.
         </motion.p>
 
         {/* YouTube */}
@@ -91,35 +95,39 @@ export default function InstagramFeed() {
           <p className="text-[#C0C8D8] font-medium">{SITE_CONFIG.youtubeHandle}</p>
         </motion.div>
 
-        <motion.a
-          href={SITE_CONFIG.youtubeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[0, 1, 2].map((i) => (
-              <motion.div
-                key={i}
-                className="aspect-video rounded-2xl bg-gradient-to-br from-[#1a0a0a] to-[#3a0a0a] flex flex-col items-center justify-center border border-white/5 group cursor-pointer overflow-hidden relative"
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                whileHover={{ scale: 1.02, borderColor: "rgba(255,68,68,0.3)" }}
-              >
-                <div className="w-12 h-12 rounded-full bg-[#FF4444]/20 border border-[#FF4444]/30 flex items-center justify-center mb-3 group-hover:bg-[#FF4444]/30 transition-colors duration-300">
-                  <Play size={20} className="text-[#FF4444] ml-0.5" />
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {[
+            "fqTqapC223Y",
+            "wyDMsi77tZk",
+            "54rNmKxEEDM",
+          ].map((videoId, i) => (
+            <motion.a
+              key={videoId}
+              href={`https://www.youtube.com/watch?v=${videoId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="aspect-video rounded-2xl bg-[#1a0a0a] border border-white/5 overflow-hidden group cursor-pointer relative block"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              whileHover={{ scale: 1.02, borderColor: "rgba(255,68,68,0.3)" }}
+            >
+              <Image
+                src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+                alt={`Printfinity video ${i + 1}`}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              {/* Play button overlay */}
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-[#FF4444]/80 group-hover:bg-[#FF4444] transition-colors duration-300 flex items-center justify-center shadow-lg">
+                  <Play size={20} className="text-white ml-0.5" fill="white" />
                 </div>
-                <span className="text-[#C0C8D8]/50 text-xs group-hover:text-[#C0C8D8]/70 transition-colors duration-300">Video coming soon</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.a>
+              </div>
+            </motion.a>
+          ))}
+        </div>
 
         <motion.p
           className="text-center text-[#C0C8D8] text-sm mt-6"

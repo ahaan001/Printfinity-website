@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ShieldCheck, MapPin, Leaf, Heart, ArrowRight, Printer, User } from "lucide-react";
+import { ShieldCheck, MapPin, Leaf, Heart, ArrowRight, User } from "lucide-react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
@@ -89,7 +89,7 @@ export default function AboutPage() {
             <div className="space-y-4 text-[#C0C8D8] leading-relaxed">
               <p>
                 Printfinity brings ideas to life. We provide 3D printing services for a wide range of
-                needs — whether you are developing a prototype, manufacturing custom components, or
+                needs, whether you are developing a prototype, manufacturing custom components, or
                 creating a truly unique product, we turn concepts into reality with precision and care.
               </p>
               <p>
@@ -105,16 +105,19 @@ export default function AboutPage() {
           </motion.div>
 
           <motion.div
-            className="lg:col-span-2 aspect-square bg-gradient-to-br from-[#111D35] to-[#2A4A7F] rounded-3xl flex items-center justify-center border border-white/10"
+            className="lg:col-span-2 aspect-video rounded-3xl overflow-hidden border border-white/10"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="text-center">
-              <Printer size={64} className="text-[#C0C8D8]/30 mx-auto mb-4" />
-              <p className="text-[#C0C8D8]/40 text-sm">Our workshop in action</p>
-            </div>
+            <iframe
+              src="https://www.youtube.com/embed/fqTqapC223Y"
+              title="Printfinity workshop in action"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            />
           </motion.div>
         </div>
 
@@ -158,19 +161,18 @@ export default function AboutPage() {
               <h3 className="text-2xl font-bold text-white font-[Outfit] mb-6">Keya Mehta</h3>
               <div className="space-y-4 text-[#C0C8D8] leading-relaxed">
                 <p>
-                  Printfinity was founded by Keya Mehta — an innovator, maker, and problem-solver
+                  Printfinity was founded by Keya Mehta, an innovator, maker, and problem-solver
                   driven by an obsession with turning ideas into tangible things.
                 </p>
                 <p>
                   It started with a spark: a 3D printing course that revealed the extraordinary
-                  potential of additive manufacturing. What began as curiosity quickly became a craft —
-                  designing model after model, learning the science behind every layer, every material,
+                  potential of additive manufacturing. What began as curiosity quickly became a craft, designing model after model, learning the science behind every layer, every material,
                   every setting. That journey led to investing in a professional FDM printer and
                   launching Printfinity with a clear mission: to make custom manufacturing accessible
                   to anyone with an idea.
                 </p>
                 <p>
-                  Printfinity is built on the belief that great ideas deserve great execution — and
+                  Printfinity is built on the belief that great ideas deserve great execution, and
                   that the barrier between concept and creation should be as thin as a single printed
                   layer.
                 </p>
@@ -192,7 +194,7 @@ export default function AboutPage() {
             <div className="relative z-10">
               <div className="text-[#C9A84C] text-6xl font-serif leading-none mb-4">"</div>
               <p className="text-xl md:text-2xl text-white font-[Outfit] font-medium leading-relaxed max-w-3xl mx-auto">
-                Our mission is to democratize manufacturing — making custom 3D printing accessible,
+                Our mission is to democratize manufacturing, making custom 3D printing accessible,
                 affordable, and exceptional for everyone in India.
               </p>
               <div className="mt-6 w-16 h-0.5 bg-[#C9A84C]/40 rounded-full mx-auto" />

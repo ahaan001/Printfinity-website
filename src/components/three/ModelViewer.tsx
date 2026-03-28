@@ -1,12 +1,12 @@
 "use client";
 
 import { Suspense, useRef, useEffect, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Environment, Center } from "@react-three/drei";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import { OrbitControls, Center } from "@react-three/drei";
+import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import * as THREE from "three";
-import { Box } from "lucide-react";
 
-// Category → distinct procedural geometry
+// Category → distinct procedural geometry shown when no model file is available
 function CategoryPlaceholder({ category }: { category: string }) {
   const ref = useRef<THREE.Mesh>(null!);
   const groupRef = useRef<THREE.Group>(null!);
@@ -67,48 +67,27 @@ function LoadingSpinner() {
   );
 }
 
-interface ModelViewerProps {
-  stlPath?: string;
-  modelCategory?: string;
-  autoRotate?: boolean;
-  height?: string;
-}
+function STLModel({ url }: { url: string }) {
+  const geometry = useLoader(STLLoader, url);
+  const meshRef = useRef<THREE.Mesh>(null!);
 
-export default function ModelViewer({
-  stlPath,
-  modelCategory = "Default",
-  autoRotate = true,
-  height = "500px",
-}: ModelViewerProps) {
+  useEffect(() => {
+    if (geometry && meshRef.current) {
+      geometry.computeBoundingBox();
+      geometry.center();
+      const box = new THREE.Box3().setFromBufferAttribute(
+        geometry.attributes.position as THREE.BufferAttribute
+      );
+      const size = box.getSize(new THREE.Vector3());
+      const maxDim = Math.max(size.x, size.y, size.z);
+      if (maxDim > 0) meshRef.current.scale.setScalar(3 / maxDim);
+    }
+  }, [geometry]);
+
   return (
-    <div style={{ height }} className="w-full rounded-2xl overflow-hidden bg-[#0d1a2d]">
-      <Canvas
-        camera={{ position: [0, 2, 6], fov: 45 }}
-        gl={{ antialias: true }}
-        shadows
-      >
-        <ambientLight intensity={0.3} />
-        <directionalLight position={[5, 8, 5]} intensity={1.5} castShadow color="#ffffff" />
-        <directionalLight position={[-5, 3, -5]} intensity={0.5} color="#3B82F6" />
-        <directionalLight position={[0, -3, 3]} intensity={0.3} color="#C0C8D8" />
-        <Environment preset="studio" />
-
-        <Center>
-          <Suspense fallback={<LoadingSpinner />}>
-            <ModelContent stlPath={stlPath} modelCategory={modelCategory} />
-          </Suspense>
-        </Center>
-
-        <OrbitControls
-          autoRotate={autoRotate}
-          autoRotateSpeed={1.5}
-          enableZoom
-          enablePan
-          dampingFactor={0.05}
-          enableDamping
-        />
-      </Canvas>
-    </div>
+    <mesh ref={meshRef} geometry={geometry} castShadow receiveShadow>
+      <meshStandardMaterial color="#C0C8D8" metalness={0.6} roughness={0.3} />
+    </mesh>
   );
 }
 
@@ -131,44 +110,58 @@ function ModelContent({
       .catch(() => setFileExists(false));
   }, [stlPath]);
 
-  // While checking, show placeholder
   if (fileExists === null || !fileExists) {
     return <CategoryPlaceholder category={modelCategory} />;
   }
 
-  // File confirmed to exist — load STL
   return (
     <Suspense fallback={<LoadingSpinner />}>
-      <STLModelLoader url={stlPath!} />
+      <STLModel url={stlPath!} />
     </Suspense>
   );
 }
 
-// Dynamically imported only when actually needed
-function STLModelLoader({ url }: { url: string }) {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const { useLoader } = require("@react-three/fiber");
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const { STLLoader } = require("three/examples/jsm/loaders/STLLoader.js");
-  const geometry = useLoader(STLLoader, url);
-  const meshRef = useRef<THREE.Mesh>(null!);
+interface ModelViewerProps {
+  stlPath?: string;
+  modelCategory?: string;
+  autoRotate?: boolean;
+  height?: string;
+}
 
-  useEffect(() => {
-    if (geometry && meshRef.current) {
-      geometry.computeBoundingBox();
-      geometry.center();
-      const box = new THREE.Box3().setFromBufferAttribute(
-        geometry.attributes.position as THREE.BufferAttribute
-      );
-      const size = box.getSize(new THREE.Vector3());
-      const maxDim = Math.max(size.x, size.y, size.z);
-      meshRef.current.scale.setScalar(3 / maxDim);
-    }
-  }, [geometry]);
-
+export default function ModelViewer({
+  stlPath,
+  modelCategory = "Default",
+  autoRotate = true,
+  height = "500px",
+}: ModelViewerProps) {
   return (
-    <mesh ref={meshRef} geometry={geometry} castShadow receiveShadow>
-      <meshStandardMaterial color="#C0C8D8" metalness={0.6} roughness={0.3} />
-    </mesh>
+    <div style={{ height }} className="w-full rounded-2xl overflow-hidden">
+      <Canvas
+        camera={{ position: [0, 2, 6], fov: 45 }}
+        gl={{ antialias: true }}
+        shadows
+      >
+        <color attach="background" args={["#0d1a2d"]} />
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[5, 8, 5]} intensity={1.5} castShadow color="#ffffff" />
+        <directionalLight position={[-5, 3, -5]} intensity={0.5} color="#3B82F6" />
+        <directionalLight position={[0, -3, 3]} intensity={0.3} color="#C0C8D8" />
+
+        <Center>
+          <Suspense fallback={<LoadingSpinner />}>
+            <ModelContent stlPath={stlPath} modelCategory={modelCategory} />
+          </Suspense>
+        </Center>
+
+        <OrbitControls
+          autoRotate={autoRotate}
+          autoRotateSpeed={1.5}
+          enableZoom
+          enablePan
+          dampingFactor={0.05}
+          enableDamping
+        />
+      </Canvas>
+    </div>
   );
 }

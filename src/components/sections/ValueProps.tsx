@@ -9,7 +9,7 @@ const props = [
     icon: Layers,
     title: "Exceptional Quality",
     description:
-      "Every print is precision-calibrated for dimensional accuracy, strong layer adhesion, and a clean surface finish — ready to use right out of the box.",
+      "Every print is precision-calibrated for dimensional accuracy, strong layer adhesion, and a clean surface finish , ready to use right out of the box.",
   },
   {
     icon: Clock,
@@ -27,7 +27,7 @@ const props = [
     icon: Shield,
     title: "Quality Guaranteed",
     description:
-      "Every print is inspected before dispatch. Dimensional accuracy, layer adhesion, surface finish — we check it all so you receive exactly what you ordered.",
+      "Every print is inspected before dispatch. Dimensional accuracy, layer adhesion, surface finish , we check it all so you receive exactly what you ordered.",
   },
   {
     icon: Star,

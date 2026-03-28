@@ -338,7 +338,7 @@ export default function OrderModal() {
                         <span className="text-white font-semibold font-[Outfit]">Custom / Other</span>
                         <span className="text-[#C0C8D8] text-xs">Quote on request</span>
                       </div>
-                      <p className="text-[#C0C8D8] text-xs mt-0.5">Something unique — we'll quote you</p>
+                      <p className="text-[#C0C8D8] text-xs mt-0.5">Something unique, we'll quote you</p>
                     </button>
                   </div>
                 )}

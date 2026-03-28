@@ -1,68 +1,33 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Star, Quote, ImageOff } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 import Card from "@/components/ui/Card";
 
 const testimonials = [
   {
     quote:
-      "The print quality exceeded my expectations. Smooth finish and perfect dimensions. I ordered a custom mechanical housing and it fit perfectly on the first try.",
-    name: "Arjun M.",
+      "I ordered custom keychains from Printfinity to help label my house keys. It is a beautiful design and the product quality exceeded my expectations!",
+    name: "Apurva K.",
     city: "Mumbai",
     stars: 5,
   },
   {
     quote:
-      "Fast delivery and great communication throughout. I was kept in the loop at every stage. Will definitely order again — already placed my second order!",
-    name: "Priya S.",
-    city: "Bangalore",
+      "I have already placed my second order! I loved the designs as well as the flexibility of sending my own CAD files. Best prices on the market.",
+    name: "Ahaan K.",
+    city: "Mumbai",
     stars: 5,
   },
   {
     quote:
-      "Custom figurine came out absolutely amazing. The detail on the face was incredible — better than I'd seen from much more expensive services. Truly premium work.",
-    name: "Rohan K.",
-    city: "Delhi",
+      "Premium work. I have gotten custom designs done with even higher quality than more expensive competitors. Will definitely order again.",
+    name: "Kimaya M.",
+    city: "Mumbai",
     stars: 5,
   },
 ];
 
-const printShowcase = [
-  { src: "/images/printed-boat.jpg", label: "Printed Boat", gradient: "from-[#0d2040] to-[#1a3a6a]" },
-  { src: "/images/printed-shark.jpg", label: "Printed Shark", gradient: "from-[#0d1a30] to-[#1a2a50]" },
-  { src: "/images/printed-vase.jpg", label: "Printed Vase", gradient: "from-[#111D35] to-[#2A4A7F]" },
-];
-
-function PrintImage({ src, label, gradient }: { src: string; label: string; gradient: string }) {
-  const [failed, setFailed] = useState(false);
-
-  return (
-    <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-      {!failed ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={src}
-          alt={label}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          onError={() => setFailed(true)}
-        />
-      ) : (
-        <div className={`w-full h-full bg-gradient-to-br ${gradient} flex items-center justify-center`}>
-          <div className="text-center">
-            <ImageOff size={28} className="text-[#C0C8D8]/30 mx-auto mb-2" />
-            <p className="text-[#C0C8D8]/40 text-xs">Image coming soon</p>
-          </div>
-        </div>
-      )}
-      {/* Label overlay */}
-      <div className="absolute bottom-0 left-0 right-0 px-4 py-3 bg-gradient-to-t from-black/60 to-transparent">
-        <p className="text-white text-sm font-medium">{label}</p>
-      </div>
-    </div>
-  );
-}
 
 export default function Testimonials() {
   return (
@@ -83,7 +48,7 @@ export default function Testimonials() {
         </motion.div>
 
         {/* Testimonial cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
@@ -113,30 +78,6 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Print showcase */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <h3 className="text-xl font-semibold text-white font-[Outfit] text-center mb-6">
-            From Our Print Bed
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {printShowcase.map((item, i) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-              >
-                <PrintImage {...item} />
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

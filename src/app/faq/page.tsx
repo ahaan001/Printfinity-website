@@ -17,7 +17,7 @@ const FAQ_DATA = [
       },
       {
         question: "What file formats do you accept?",
-        answer: "We accept STL, OBJ, and 3MF files — the three most common 3D printing formats. If you have a different format (like STEP, IGES, or Fusion 360 files), contact us on WhatsApp and we'll help you convert.",
+        answer: "We accept STL, OBJ, and 3MF files , the three most common 3D printing formats. If you have a different format (like STEP, IGES, or Fusion 360 files), contact us on WhatsApp and we'll help you convert.",
       },
       {
         question: "Can I order without a 3D file?",
@@ -25,7 +25,7 @@ const FAQ_DATA = [
       },
       {
         question: "What is the minimum order quantity?",
-        answer: "There is no minimum. We print single items all the time — perfect for prototypes, gifts, or one-of-a-kind creations. Bulk orders (10+) receive discounted pricing.",
+        answer: "There is no minimum. We print single items all the time , perfect for prototypes, gifts, or one-of-a-kind creations. Bulk orders (10+) receive discounted pricing.",
       },
     ],
   },
@@ -42,7 +42,7 @@ const FAQ_DATA = [
       },
       {
         question: "What is the maximum print size?",
-        answer: "Our standard build volume is 256×256×256mm. For larger objects, we can print in multiple parts and assemble them. There's no upper limit — we've handled prints up to 600mm tall by splitting them strategically.",
+        answer: "Our standard build volume is 256×256×256mm. For larger objects, we can print in multiple parts and assemble them. There's no upper limit , we've handled prints up to 600mm tall by splitting them strategically.",
       },
       {
         question: "How accurate are the prints?",
@@ -72,7 +72,7 @@ const FAQ_DATA = [
     items: [
       {
         question: "How is pricing calculated?",
-        answer: "Pricing is based on print volume (how much filament is used), print time, model complexity, material choice, and quantity. Our tiers give you a starting estimate — the final quote after reviewing your file is always exact.",
+        answer: "Pricing is based on print volume (how much filament is used), print time, model complexity, material choice, and quantity. Our tiers give you a starting estimate , the final quote after reviewing your file is always exact.",
       },
       {
         question: "Do you offer bulk discounts?",
