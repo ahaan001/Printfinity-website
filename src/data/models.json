@@ -1,0 +1,223 @@
+[
+  {
+    "id": "geometric-vase",
+    "name": "Geometric Vase",
+    "category": "Home Decor",
+    "price": null,
+    "description": "A modern low-poly vase with sharp geometric facets. Stunning as a centerpiece or accent piece. Prints hollow with 1.2mm walls for a lightweight but sturdy result.",
+    "file": "/models/geometric-vase.stl",
+    "source": "Thingiverse",
+    "sourceUrl": "#",
+    "thumbnail": null,
+    "specs": {
+      "height": "15 cm",
+      "printTime": "~4 hours",
+      "material": "PLA",
+      "layerHeight": "0.15 mm"
+    }
+  },
+  {
+    "id": "dragon-figurine",
+    "name": "Dragon Figurine",
+    "category": "Figurine",
+    "price": null,
+    "description": "A highly detailed fantasy dragon in a rearing pose. Features intricate scale texture and articulated wings. A showcase piece demonstrating fine detail capability.",
+    "file": "/models/dragon-figurine.stl",
+    "source": "Printables",
+    "sourceUrl": "#",
+    "thumbnail": null,
+    "specs": {
+      "height": "12 cm",
+      "printTime": "~8 hours",
+      "material": "PLA / PETG",
+      "layerHeight": "0.1 mm"
+    }
+  },
+  {
+    "id": "gear-assembly",
+    "name": "Planetary Gear Assembly",
+    "category": "Mechanical Part",
+    "price": null,
+    "description": "A functional 3-stage planetary gear system that actually rotates. Great for educational purposes or as a fidget toy. Prints in multiple parts that snap together without tools.",
+    "file": "/models/gear-assembly.stl",
+    "source": "Thingiverse",
+    "sourceUrl": "#",
+    "thumbnail": null,
+    "specs": {
+      "height": "5 cm",
+      "printTime": "~6 hours",
+      "material": "PETG",
+      "layerHeight": "0.2 mm"
+    }
+  },
+  {
+    "id": "voronoi-lamp",
+    "name": "Voronoi Lamp Shade",
+    "category": "Art",
+    "price": null,
+    "description": "A mathematically-generated Voronoi pattern lamp shade that creates mesmerizing shadow patterns when lit. Translucent filament recommended for best effect.",
+    "file": "/models/voronoi-lamp.stl",
+    "source": "MyMiniFactory",
+    "sourceUrl": "#",
+    "thumbnail": null,
+    "specs": {
+      "height": "20 cm",
+      "printTime": "~10 hours",
+      "material": "PLA (translucent)",
+      "layerHeight": "0.15 mm"
+    }
+  },
+  {
+    "id": "phone-stand",
+    "name": "Adjustable Phone Stand",
+    "category": "Gadget",
+    "price": null,
+    "description": "A sleek adjustable desk phone stand with cable management. Compatible with all phone sizes. The angle is adjustable from 30° to 75° via a click-lock mechanism.",
+    "file": "/models/phone-stand.stl",
+    "source": "Printables",
+    "sourceUrl": "#",
+    "thumbnail": null,
+    "specs": {
+      "height": "10 cm",
+      "printTime": "~3 hours",
+      "material": "PLA / ABS",
+      "layerHeight": "0.2 mm"
+    }
+  },
+  {
+    "id": "succulent-planter",
+    "name": "Hexagonal Succulent Planter",
+    "category": "Home Decor",
+    "price": null,
+    "description": "A modular hexagonal planter system that tiles together seamlessly. Each unit has a built-in drainage hole and tray. Mix and match colors for a stunning wall garden installation.",
+    "file": "/models/succulent-planter.stl",
+    "source": "Thingiverse",
+    "sourceUrl": "#",
+    "thumbnail": null,
+    "specs": {
+      "height": "8 cm",
+      "printTime": "~2.5 hours",
+      "material": "PLA",
+      "layerHeight": "0.2 mm"
+    }
+  },
+  {
+    "id": "twister-small",
+    "name": "Twister (Small)",
+    "category": "Gadget",
+    "price": 100,
+    "description": "Compact twist fidget toy with a satisfying smooth action. Pocket-sized and perfect for stress relief. Available in any of our 10 preset colors.",
+    "file": null,
+    "source": "Printfinity",
+    "sourceUrl": "#",
+    "thumbnail": null,
+    "specs": {
+      "height": "5 cm",
+      "printTime": "~1.5 hours",
+      "material": "PLA",
+      "layerHeight": "0.2 mm"
+    }
+  },
+  {
+    "id": "custom-keychain",
+    "name": "Custom Keychains",
+    "category": "Custom",
+    "price": 200,
+    "description": "Personalized keychain printed to your design or name. Great as gifts, accessories, or brand merchandise. Durable PLA with smooth finish.",
+    "file": null,
+    "source": "Printfinity",
+    "sourceUrl": "#",
+    "thumbnail": null,
+    "specs": {
+      "height": "4 cm",
+      "printTime": "~1 hour",
+      "material": "PLA",
+      "layerHeight": "0.15 mm"
+    }
+  },
+  {
+    "id": "twister-large",
+    "name": "Twister (Large)",
+    "category": "Gadget",
+    "price": 250,
+    "description": "Full-size twist fidget toy with a deeply satisfying snap and spin action. Larger grip, more satisfying than the small version.",
+    "file": null,
+    "source": "Printfinity",
+    "sourceUrl": "#",
+    "thumbnail": null,
+    "specs": {
+      "height": "9 cm",
+      "printTime": "~3 hours",
+      "material": "PLA",
+      "layerHeight": "0.2 mm"
+    }
+  },
+  {
+    "id": "fidget-ball",
+    "name": "Transforming Fidget Ball",
+    "category": "Gadget",
+    "price": 200,
+    "description": "A print-in-place ball that transforms into a star shape with a squeeze. Mesmerising to fidget with and requires no assembly — printed fully assembled.",
+    "file": null,
+    "source": "Printfinity",
+    "sourceUrl": "#",
+    "thumbnail": null,
+    "specs": {
+      "height": "7 cm",
+      "printTime": "~2 hours",
+      "material": "PLA",
+      "layerHeight": "0.2 mm"
+    }
+  },
+  {
+    "id": "articulated-dragon",
+    "name": "Articulated Dragon / Shark",
+    "category": "Figurine",
+    "price": 200,
+    "description": "Flexible, fully articulated print-in-place figure with every segment independently movable. Highly detailed and endlessly fidgetable — a showpiece and a toy in one.",
+    "file": null,
+    "source": "Printfinity",
+    "sourceUrl": "#",
+    "thumbnail": null,
+    "specs": {
+      "height": "25 cm",
+      "printTime": "~5 hours",
+      "material": "PLA",
+      "layerHeight": "0.15 mm"
+    }
+  },
+  {
+    "id": "hexagon-fidget",
+    "name": "Hexagon Fidget Toy",
+    "category": "Gadget",
+    "price": 200,
+    "description": "Satisfying hex grid fidget with interlocking pieces that click and slide. Compact, silent, and great for focus and stress relief.",
+    "file": null,
+    "source": "Printfinity",
+    "sourceUrl": "#",
+    "thumbnail": null,
+    "specs": {
+      "height": "4 cm",
+      "printTime": "~2 hours",
+      "material": "PLA",
+      "layerHeight": "0.2 mm"
+    }
+  },
+  {
+    "id": "planter",
+    "name": "Planter",
+    "category": "Home Decor",
+    "price": 1200,
+    "description": "Stylish modern planter with built-in drainage hole and saucer, perfect for succulents, cacti, or small indoor plants. Available in all 10 colors.",
+    "file": null,
+    "source": "Printfinity",
+    "sourceUrl": "#",
+    "thumbnail": null,
+    "specs": {
+      "height": "12 cm",
+      "printTime": "~6 hours",
+      "material": "PLA",
+      "layerHeight": "0.2 mm"
+    }
+  }
+]

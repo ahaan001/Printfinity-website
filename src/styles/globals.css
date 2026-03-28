@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0A1628;
+  --color-midnight: #111D35;
+  --color-steel: #2A4A7F;
+  --color-silver: #C0C8D8;
+  --color-puresilver: #E8ECF2;
+  --color-electric: #3B82F6;
+  --color-gold: #C9A84C;
+
+  --font-display: "Outfit", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --radius-4xl: 2rem;
+  --radius-5xl: 2.5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0A1628;
+    color: #E8ECF2;
+    font-family: "DM Sans", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Outfit", sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  code, pre, .mono {
+    font-family: "JetBrains Mono", monospace;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .shadow-blue {
+    box-shadow: 0 8px 32px rgba(10, 22, 40, 0.4);
+  }
+
+  .shadow-blue-lg {
+    box-shadow: 0 16px 64px rgba(10, 22, 40, 0.6);
+  }
+
+  .glow-electric {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #E8ECF2 0%, #C0C8D8 50%, #3B82F6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
